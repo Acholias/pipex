@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumugot <lumugot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/30 07:52:02 by lumugot           #+#    #+#             */
-/*   Updated: 2024/11/30 16:08:45 by lumugot          ###   ########.fr       */
+/*   Created: 2024/12/24 11:34:24 by lumugot           #+#    #+#             */
+/*   Updated: 2024/12/24 14:52:16 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include "Libft/libft.h"
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	index;
 
-char	*find_path(char *cmd, char **env);
-void	execute(char *argv, char **env);
-void	child(char **argv, char **env, int *fd);
-void	parent(char **argv, char **env, int *fd);
-
-#endif
+	if (!s1 || !s2)
+		return (0);
+	while (s1[index] && s2[index] && s1[index] == s2[index])
+		index++;
+	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
+}
